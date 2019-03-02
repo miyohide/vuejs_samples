@@ -5,19 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VueJS Sample</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 </head>
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <input type="text" v-model='hoge'>{{hoge}}
+        <div class="form-hirizontal">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input class="form-control" v-model="a">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="radio-inline">
+                        <input type="radio" v-model="a" value="1">壱
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" v-model="a" value="2">弐
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" v-model="a" value="3">参
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="range" max="3" min="1" v-model="a">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="checkbox" false-value="1" true-value="2" v-model="a">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <textarea class="form-control"  v-model="a">
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <p class="form-control-static">{{a}}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
-        new Vue({
-            el: "#app",
-            data: {
-                hoge: 1,
-            },
-        })
+        const vm = new Vue({el: "#app", data: {a: null}});
+        vm.a = 1;
     </script>
 </body>
 </html>
