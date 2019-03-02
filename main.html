@@ -9,19 +9,13 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        {{a}} + {{b}} = {{c}}
+        <input type="text" v-model='hoge'>{{hoge}}
     </div>
     <script>
         new Vue({
             el: "#app",
             data: {
-                a: 1,
-                b: 2,
-            },
-            computed: {
-                c: function () {
-                    return this.a + this.b;
-                },
+                hoge: 1,
             },
         })
     </script>
