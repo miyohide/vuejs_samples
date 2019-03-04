@@ -51,6 +51,10 @@
                 sum: function() { return this.a * this.b + this.c * this.d; },
                 tax: function() { return Math.ceil(this.sum * 0.08); },
             },
+            watch: {
+                b: function(v) { if (v < 0) { this.b = 0; } },
+                d: function(v) { if (v < 0) { this.d = 0; } },
+            },
         })
     </script>
 </body>
