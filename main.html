@@ -16,12 +16,12 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">色</label>
                 <div class="col-md-10">
-                    <input v-model="a" class="form-control">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="color" class="form-control" v-model="a">
+                    <input class="form-control" v-model="c" :style="{backgroundColor: c}">
+                    <div class="help-block">
+                        <input type="range" min="0" max="360" v-model.number="h">
+                        <input type="range" min="0" max="100" v-model.number="s">
+                        <input type="range" min="0" max="100" v-model.number="l">
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,8 +29,17 @@
     <script>
         new Vue({
             el: "#app",
-            data: { a: "#6B8CFF"},
-        })
+            data: {
+                h: 163,  // 色相（Hue）
+                s: 84,   // 彩度（Saturation）
+                l: 77,   // 明度（Lightness）
+            },
+            computed: {
+                c: function() {
+                    return `hsl(${this.h}, ${this.s}%, ${this.l}%)`;
+                },
+            },
+        });
     </script>
 </body>
 </html>
