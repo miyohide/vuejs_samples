@@ -12,32 +12,15 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <div class="form-horizontal">
-            <div class="form-group">
-                <label class="col-md-2 control-label">色</label>
-                <div class="col-md-10">
-                    <input class="form-control" v-model="c" :style="{backgroundColor: c}">
-                    <div class="help-block">
-                        <input type="range" min="0" max="360" v-model.number="h">
-                        <input type="range" min="0" max="100" v-model.number="s">
-                        <input type="range" min="0" max="100" v-model.number="l">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="btn btn-link" @click="a = !a">{{label}}</div>
+        <p v-show="a"><img src="https://via.placeholder.com/256?text=CONTENTS" class="img-thumbnail"></p>
     </div>
     <script>
-        new Vue({
+        const vm = new Vue({
             el: "#app",
-            data: {
-                h: 163,  // 色相（Hue）
-                s: 84,   // 彩度（Saturation）
-                l: 77,   // 明度（Lightness）
-            },
+            data: {a: false},
             computed: {
-                c: function() {
-                    return `hsl(${this.h}, ${this.s}%, ${this.l}%)`;
-                },
+                label: function() { return this.a ? "閉じる" : "もっと見る"; },
             },
         });
     </script>
