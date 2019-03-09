@@ -16,13 +16,8 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <label class="checkbox-inline">
-                        <input type="checkbox" v-model="a">承認
+                        <input type="checkbox" v-model="a" @click="a = true">承認
                     </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <button class="btn btn-primary" :disabled="!a">送信</button>
                 </div>
             </div>
         </div>
