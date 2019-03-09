@@ -14,14 +14,15 @@
     <div id="app">
         <div class="form-horizontal">
             <div class="form-group">
-                <label class="col-md-2 control-label">タイトル</label>
-                <div class="col-md-10">
-                    <input class="form-control" v-model="a">
+                <div class="col-md-offset-2 col-md-10">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" v-model="a">承認
+                    </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <button type="button" class="btn btn-primary" :disabled="b">Merge</button>
+                    <button class="btn btn-primary" :disabled="!a">送信</button>
                 </div>
             </div>
         </div>
@@ -29,12 +30,7 @@
     <script>
         const vm = new Vue({
             el: "#app",
-            data: {a: "WIP: 親譲りの無鉄砲で子供の頃から損ばかりしている"},
-            computed: {
-                b: function () {
-                    return /\bWIP\b/i.test(this.a);
-                },
-            },
+            data: {a: false},
         });
     </script>
 </body>
