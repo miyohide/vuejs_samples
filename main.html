@@ -14,10 +14,15 @@
     <div id="app">
         <div class="form-horizontal">
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" v-model="a" @click="a = true">承認
-                    </label>
+                <label class="col-md-2 control-label">パスワード</label>
+                <div class="col-md-10">
+                    <input type="password" class="form-control" v-model="p" v-if="t == 'password'">
+                    <input type="text" class="form-control" v-model="p" v-if="t == 'text'">
+                    <div class="help-block">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" v-model="t" true-value="text" false-value="password">マスク解除
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,7 +30,7 @@
     <script>
         const vm = new Vue({
             el: "#app",
-            data: {a: false},
+            data: {p: "secret-password", t: "password"},
         });
     </script>
 </body>
