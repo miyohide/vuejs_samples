@@ -14,15 +14,15 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <!-- 1回だけという制限を設けるためにonceを指定。
-            https://jp.vuejs.org/v2/api/index.html#v-on
-        -->
-        <div class="btn btn-primary" @click.once="a += 1">
-            ★
-            <div class="badge">
-                {{a}}
-            </div>
-        </div>
+        <template v-if="f">
+            <!--
+                #ref https://jp.vuejs.org/v2/api/#ref
+            -->
+            <input v-model="v" @keyup.enter="f = false" @blur="f = false" ref="r1">
+        </template>
+        <template v-else="">
+            <span @click="c">{{v}}</span>
+        </template>
     </div>
     <script src="main.js"></script>
 </body>
