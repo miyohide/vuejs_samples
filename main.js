@@ -1,11 +1,11 @@
 const vm = new Vue({
     el: "#app",
-    data: {f: false, v: 3},
+    data: {answer: null},
     methods: {
-        c: function () {
-            this.v = "";
-            this.f = true;
-            this.$nextTick(function () { this.$refs.r1.focus(); });
+        a: function (e) {
+            // カスタムdata属性を読むのは HTMLElement.dataset
+            // https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/dataset
+            this.answer = e.target.dataset.v;
         },
     },
 });

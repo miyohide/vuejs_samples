@@ -14,11 +14,16 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <template v-if="f">
-            <input v-model.number="v" @keyup="f = false" ref="r1">
+        <template v-if="!answer">
+            <div class="btn btn-default btn-xs" @click="a" data-v="yes">
+                はい
+            </div>
+            <div class="btn btn-default btn-xs" @click="a" data-v="no">
+                    いいえ
+            </div>
         </template>
         <template v-else="">
-            <span @click="c">{{&#39;★&#39;.repeat(v)}}{{&#39;☆&#39;.repeat(5 - v)}}</span>
+            ありがとうございました!
         </template>
     </div>
     <script src="main.js"></script>
