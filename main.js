@@ -1,11 +1,15 @@
 const vm = new Vue({
     el: "#app",
-    data: {answer: null},
+    data: {good: 0, bad: 0},
+    // created https://jp.vuejs.org/v2/api/#created
+    created: function () {
+        // vm.$once https://jp.vuejs.org/v2/api/#vm-once
+        this.$once("foo", function(e) { this[e.target.dataset.key] += 1; });
+    },
     methods: {
         a: function (e) {
-            // カスタムdata属性を読むのは HTMLElement.dataset
-            // https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/dataset
-            this.answer = e.target.dataset.v;
+            // vm.$emit https://jp.vuejs.org/v2/api/#vm-emit
+            this.$emit("foo", e);
         },
     },
 });

@@ -14,18 +14,13 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <template v-if="!answer">
-            <div class="btn btn-default btn-xs" @click="a" data-v="yes">
-                はい
+        <div class="btn btn-link glyphicon glyphicon-hand-up" @click="a" data-key="good">
+            {{good}}
+        </div>
+        <div class="btn btn-link glyphicon glyphicon-hand-down" @click="a" data-key="bad">
+                {{bad}}
             </div>
-            <div class="btn btn-default btn-xs" @click="a" data-v="no">
-                    いいえ
-            </div>
-        </template>
-        <template v-else="">
-            ありがとうございました!
-        </template>
-    </div>
+        </div>
     <script src="main.js"></script>
 </body>
 </html>
