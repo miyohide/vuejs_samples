@@ -15,11 +15,13 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <div class="btn btn-link" @click="a" data-key="good">
-            <i class="fas fa-thumbs-up"></i>{{good}}
-        </div>
-        <div class="btn btn-link" @click="a" data-key="bad">
-            <i class="fas fa-thumbs-down"></i>{{bad}}
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-2 control-label">本文</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" v-model="a" :rows="a.split(/\n/).length"></textarea>
+                </div>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
