@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">本文</label>
                 <div class="col-md-10">
-                    <textarea class="form-control" v-model="a" :rows="a.split(/\n/).length"></textarea>
+                    <textarea class="form-control" v-model="a" :rows="4 + a.length / 40"></textarea>
                 </div>
             </div>
         </div>
