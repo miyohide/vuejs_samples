@@ -15,14 +15,16 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <div class="form-horizontal">
+        <!-- submitイベントが発生したときにc関数を実行する -->
+        <form action="" method="post" @submit="c" ref="form">
             <div class="form-group">
-                <label class="col-md-2 control-label">本文</label>
-                <div class="col-md-10">
-                    <textarea class="form-control" v-model="a" :rows="4 + a.length / 40"></textarea>
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary" name="action" value="send">
+                        送信
+                    </button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <script src="main.js"></script>
 </body>
