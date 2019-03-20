@@ -15,16 +15,33 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <!-- submitイベントが発生したときにc関数を実行する -->
-        <form action="" method="post" @submit="c">
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-primary" name="action" value="send">
-                        送信
-                    </button>
+        <template v-if="!show">
+            <div class="btn btn-primary" @click="show = true">
+                応募
+            </div>
+        </template>
+        <template v-else="">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    アンケートに協力お願いします
+                </div>
+                <div class="panel-body">
+                    <p>
+                        {{q}}はいかがでしたか？
+                    </p>
+                    <label class="radio-inline">
+                        <input type="radio" v-model.number="a" @change="next" value="-1">悪い
+                    </label>
+                    <label class="radio-inline">
+                            <input type="radio" v-model.number="a" @change="next" value="0">普通
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" v-model.number="a" @change="next" value="1">良い
+                    </label>
                 </div>
             </div>
-        </form>
+            {{answers}}
+        </template>
     </div>
     <script src="main.js"></script>
 </body>
