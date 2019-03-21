@@ -15,33 +15,41 @@
 <body>
     <script src="https://unpkg.com/vue"></script>
     <div id="app">
-        <template v-if="!show">
-            <div class="btn btn-primary" @click="show = true">
-                応募
-            </div>
-        </template>
-        <template v-else="">
-            <div class="card">
-                <div class="card-header">
-                    アンケートに協力お願いします
-                </div>
-                <div class="card-body">
-                    <p>
-                        {{q}}はいかがでしたか？
-                    </p>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-2 control-label">お支払い方法</label>
+                <div class="col-md-10">
                     <label class="radio-inline">
-                        <input type="radio" v-model.number="a" @change="next" value="-1">悪い
+                        <input type="radio" v-model="a" value="v1">クレジットカード
                     </label>
                     <label class="radio-inline">
-                            <input type="radio" v-model.number="a" @change="next" value="0">普通
+                            <input type="radio" v-model="a" value="v2">銀行振込
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" v-model.number="a" @change="next" value="1">良い
+                            <input type="radio" v-model="a" value="v3">チケット
                     </label>
                 </div>
             </div>
-            {{answers}}
-        </template>
+            <div class="form-group" v-if="a == &#39;v1&#39;">
+                <label class="col-md-2 control-label">番号</label>
+                <div class="col-sm-10 form-inline">
+                    <input class="form-control">
+                    <input type="month" class="form-control">
+                </div>
+            </div>
+            <div class="form-group" v-if="a == &#39;v2&#39;">
+                <label class="col-md-2 control-label">口座</label>
+                <div class="col-sm-10 form-inline">
+                    <input class="form-control">
+                </div>
+            </div>
+            <div class="form-group" v-if="a == &#39;v3&#39;">
+                <label class="col-md-2 control-label">コード</label>
+                <div class="col-sm-10 form-inline">
+                    <input class="form-control" size="8">
+                </div>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
