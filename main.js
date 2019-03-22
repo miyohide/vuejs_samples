@@ -1,11 +1,15 @@
 const vm = new Vue({
     el: "#app",
     data: {
-        a: 10,
+        a: "",
+        b: "",
     },
     watch: {
         a: function (v) {
-            document.querySelector("body").style.fontSize = `${v * 2}px`;
-        }
+            this.a = v.replace(/[A-Za-z0-9]/g, function(s) { return String.fromCharCode(s.charCodeAt(0) + 65248)});
+        },
+        b: function(v) {
+            this.b = v.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) { return String.fromCharCode(s.charCodeAt(0) - 65248) })
+        },
     }
 });
