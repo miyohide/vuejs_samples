@@ -17,15 +17,14 @@
     <div id="app">
         <div class="form-horizontal">
             <div class="form-group">
-                <label class="col-md-2 control-label">全角</label>
+                <label class="col-md-2 control-label">パスワード</label>
                 <div class="col-md-10">
-                    <input class="form-control" v-model.trim="a">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">半角</label>
-                <div class="col-md-10">
-                    <input class="form-control" v-model.trim="b">
+                    <input class="form-control" v-model="a">
+                    <div class="help-block">
+                        <div class="btn btn-default btn-xs" @click="g">
+                            パスワード生成
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
