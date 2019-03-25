@@ -19,10 +19,11 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">パスワード</label>
                 <div class="col-md-10">
-                    <input class="form-control" v-model="a">
+                    <input class="form-control" v-model.trim="p">
                     <div class="help-block">
-                        <div class="btn btn-default btn-xs" @click="g">
-                            パスワード生成
+                        <div class="progress">
+                            <div class="progress-bar bg-info" :style="{width: `${s}%`}">
+                            </div>
                         </div>
                     </div>
                 </div>
