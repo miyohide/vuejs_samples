@@ -1,17 +1,11 @@
 const vm = new Vue({
     el: "#app",
     data: {
-        p: "",
+        b: null
     },
-    computed: {
-        s: function () {
-            let s = 0;
-            s += /.{8,}/.test(this.p) ? 20 : 0;
-            s += /\d/.test(this.p) ? 20 : 0;
-            s += /[a-z]/.test(this.p) ? 20 : 0;
-            s += /[A-Z]/.test(this.p) ? 20 : 0;
-            s += /[#!&]/.test(this.p) ? 20 : 0;
-            return s;
+    methods: {
+        a: function () {
+            axios.get("https://yesno.wtf/api").then((r) => {this.b = r.data.image});
         },
     },
 });
