@@ -22,9 +22,9 @@
                 <div class="col-md-10 form-inline">
                     <input class="form-control" size="3" v-model="a" ref="r1">
                     -
-                    <input class="form-control" size="4" v-model="b" ref="r2">
+                    <input class="form-control" size="4" v-model="b" ref="r2" @keydown.delete="b2">
                     -
-                    <input class="form-control" size="4" v-model="c" ref="r3">
+                    <input class="form-control" size="4" v-model="c" ref="r3" @keydown.delete="b3">
                 </div>
             </div>
         </div>
