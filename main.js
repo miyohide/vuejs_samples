@@ -1,16 +1,18 @@
 const vm = new Vue({
     el: "#app",
     data: {
-        a: "",
-        b: "",
-        c: "",
+        a: 30,
     },
-    methods: {
-        b2: function (e) {if (e.target.value == "") { this.$refs.r1.focus() } },
-        b3: function (e) {if (e.target.value == "") { this.$refs.r2.focus() } },
+    created: function() {
+        setInterval(() => {
+            this.a--;
+        }, 1000);
     },
     watch: {
-        a: function(v) { if (v.length >= 3) { this.$refs.r2.focus(); } },
-        b: function(v) { if (v.length >= 4) { this.$refs.r3.focus(); } },
+        a: function(v) {
+            if (v <= 0) {
+                document.location = "/";    
+            }
+        }
     },
 });
