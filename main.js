@@ -1,18 +1,19 @@
 const vm = new Vue({
     el: "#app",
     data: {
-        a: 30,
+        a: "",
     },
     created: function() {
-        setInterval(() => {
-            this.a--;
-        }, 1000);
+        this.reset();
     },
     watch: {
         a: function(v) {
-            if (v <= 0) {
-                document.location = "/";    
-            }
+            this.reset();
         }
+    },
+    methods: {
+        reset: _.debounce(function () {
+            document.location = "/"
+        }, 1000 * 5),
     },
 });

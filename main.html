@@ -15,9 +15,15 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue"></script>
-    <div id="app">あと
-        <input v-model.number="a">
-        秒
+    <div id="app">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-2 control-label">入力</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" v-model="a">
+                </div>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
