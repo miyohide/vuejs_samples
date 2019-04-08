@@ -1,19 +1,16 @@
 const vm = new Vue({
     el: "#app",
     data: {
-        a: "",
+        s: 1.0,
+        x: 0,
+        y: 0,
+        a: 0,
+        c: "#ADFF2F",
+        b: 64
     },
-    created: function() {
-        this.reset();
-    },
-    watch: {
-        a: function(v) {
-            this.reset();
+    computed: {
+        transform: function() {
+            return `scale(${this.s}) translate(${this.x}px, ${this.y}px) rotate(${this.a}deg)`
         }
-    },
-    methods: {
-        reset: _.debounce(function () {
-            document.location = "/"
-        }, 1000 * 5),
-    },
+    }
 });
